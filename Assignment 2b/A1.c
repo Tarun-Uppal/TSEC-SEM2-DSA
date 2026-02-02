@@ -7,7 +7,7 @@ typedef struct {
     int end;
 } Queue;
 
-void init(Queue* q) {
+void initialize(Queue* q) {
     q->start = 0;
     q->end = 0;
 }
@@ -56,7 +56,7 @@ void display(Queue* q) {
 
 int main() {
     Queue q;
-    init(&q);
+    initialize(&q);
 
     int choice, val;
 
