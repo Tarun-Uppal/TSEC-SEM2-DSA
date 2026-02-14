@@ -3,19 +3,21 @@
 
 typedef struct {
     int data[MAX_SIZE];
-    int rear;
+    int start;
+    int end;
 } Queue;
 
 void initialize(Queue* q) {
-    q->rear = -1;
+    q->start = 0;
+    q->end = 0;
 }
 
 int isFull(Queue* q) {
-    return q->rear == MAX_SIZE - 1;
+    return (q->end + 1) % MAX_SIZE == q->start;
 }
 
 int isEmpty(Queue* q) {
-    return q->rear == -1;
+    return q->start == q->end;
 }
 
 void enqueue(Queue* q, int value) {
@@ -23,8 +25,8 @@ void enqueue(Queue* q, int value) {
         printf("Queue is Full\n");
         return;
     }
-    q->rear++;
-    q->data[q->rear] = value;
+    q->data[q->end] = value;
+    q->end = (q->end + 1) % MAX_SIZE;
 }
 
 int dequeue(Queue* q) {
@@ -32,16 +34,9 @@ int dequeue(Queue* q) {
         printf("Queue is Empty\n");
         return -1;
     }
-
-    int removed = q->data[0];
-
-    // Left Shift
-    for (int i = 0; i < q->rear; i++) {
-        q->data[i] = q->data[i + 1];
-    }
-
-    q->rear--;
-    return removed;
+    int value = q->data[q->start];
+    q->start = (q->start + 1) % MAX_SIZE;
+    return value;
 }
 
 void display(Queue* q) {
@@ -50,9 +45,11 @@ void display(Queue* q) {
         return;
     }
 
+    int i = q->start;
     printf("Queue: ");
-    for (int i = 0; i <= q->rear; i++) {
+    while (i != q->end) {
         printf("%d ", q->data[i]);
+        i = (i + 1) % MAX_SIZE;
     }
     printf("\n");
 }

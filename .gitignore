@@ -1,0 +1,94 @@
+# =========================
+# Compiled binaries
+# =========================
+*.exe
+*.out
+*.app
+*.elf
+
+# =========================
+# Object files
+# =========================
+*.o
+*.obj
+*.lo
+*.slo
+
+# =========================
+# Static & shared libraries
+# =========================
+*.a
+*.lib
+*.so
+*.so.*
+*.dll
+*.dylib
+
+# =========================
+# Build directories
+# =========================
+build/
+bin/
+dist/
+out/
+
+# =========================
+# Debug files
+# =========================
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.gdb
+
+# =========================
+# Temporary / backup files
+# =========================
+*~
+*.swp
+*.tmp
+*.bak
+
+# =========================
+# Precompiled headers
+# =========================
+*.gch
+*.ilk
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# IDE / Editor files
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# OS generated files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# CMake
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# =========================
+# Autotools
+# =========================
+autom4te.cache/
+aclocal.m4
+configure
+configure~
+config.log
+config.status
+libtool
