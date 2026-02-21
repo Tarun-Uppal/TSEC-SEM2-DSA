@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
+
 # define SIZE 25
 
 struct Stack {
@@ -9,7 +11,6 @@ struct Stack {
 
 void push(struct Stack *s, int ss);
 int pop(struct Stack *s);
-void display(struct Stack *s);
 
 void main()
 {
@@ -17,7 +18,7 @@ void main()
     s.top = 0;
     char aa[SIZE];
     printf("Enter postfix: ");
-    scanf("%s", &aa);
+    scanf("%s", aa);
     int length = strlen(aa);
     int dc = 0;
     for(int i = 0; i<length; i++){
@@ -75,30 +76,14 @@ Remove the last element from the stack
 ***/
 int pop(struct Stack *s)
 {
-    //Checks if the stack is not empty
     if (s->top > 0)
     {
-        return s->arr[s->top--];
+        s->top--;
+        return s->arr[s->top];
     }
     else
     {
         printf("NO ELEMENTS IN STACK\n");
+        return -1;
     }
-}
-/***
-Prints all the elements in the stack
-***/
-void display(struct Stack *s)
-{
-    // Checks if the stack is empty
-    if (s-> top == 0)
-    {
-        printf("NO ELEMENTS IN STACK\n");
-        return;
-    }
-    for (int j = 0; j<s->top; j++)
-    {
-        printf("%d, " , s->arr[j]);
-    }
-    printf("\n");
 }
